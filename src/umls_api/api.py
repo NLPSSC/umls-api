@@ -48,6 +48,10 @@ class API:
     def get_tui(self, tui):
         url = (f'{self.BASE_URL}/semantic-network/{self._version}/TUI/{tui}')
         return self._get(url=url)
+    
+    def search(self, term):
+        url = f'{self.BASE_URL}/search/{self._version}?string={term}'
+        return self._get(url=url)
 
     def _get(self, url):
         ticket = self._auth.get_single_use_service_ticket()
